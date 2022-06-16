@@ -7,6 +7,13 @@ const consultar = () =>{
   }
 }
 
+const intereses = (prestamo, cuotas) => {
+  for (let i = 1; i < cuotas; i++) {
+    
+    return calculo = prestamo * 0.02 * cuotas;
+    }
+}
+
 
 let usuario = prompt('Ingrese su usuario');
 
@@ -15,7 +22,7 @@ let saldo = 10000;
 const cajeroAutomatico = () => { 
     if (usuario) {
         alert('Bienvenido ' + usuario);
-        let opciones = prompt('Ingrese su opcion: 1.Retiro 2.Deposito 3.Consulta 4.Salir');
+        let opciones = prompt('Ingrese su opcion: 1.Retiro 2.Deposito 3.Consulta 4.Prestamos 5.Salir');
         switch (opciones) {
             case '1':
                 let retiro = prompt('Ingrese el monto a retirar');
@@ -39,6 +46,13 @@ const cajeroAutomatico = () => {
                 consultar();
                 break;
             case '4':
+                let prestamo = parseInt(prompt('Ingrese el monto a solicitar'));
+                let cuotas = parseInt(prompt('Ingrese el numero de cuotas'));
+                intereses(prestamo, cuotas);
+                alert(`Lo que debera pagar es: ${cuotas} cuotas del $${calculo}`);
+                consultar();
+                break;
+            case '5':
               alert('Gracias por usar nuestros servicios.')
               break;
             default:
