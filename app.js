@@ -9,8 +9,8 @@ const consultar = () =>{
 
 const intereses = (prestamo, cuotas) => {
   for (let i = 1; i <= cuotas; i++) {
-    let tasa = 0.02;
-    calculo = prestamo * tasa * cuotas;
+    let tasa = 0.2;
+    calculo = (prestamo * tasa) * cuotas;
     totalPrest = calculo * cuotas;
     alert(`El valor de la cuota numero ${i} es: $${calculo}`);
     //return calculo = prestamo * 0.02 * cuotas;
@@ -50,7 +50,7 @@ const cajeroAutomatico = () => {
                 break;
             case '4':
                 let prestamo = parseInt(prompt('Ingrese el monto a solicitar'));
-                let cuotas = parseInt(prompt('Ingrese el numero de cuotas'));
+                let cuotas = parseInt(prompt('Ingrese el numero de cuotas desea devolver el prestamo'));
                 intereses(prestamo, cuotas);
                 alert(`Lo que debera pagar es: ${cuotas} cuotas de $${calculo} con un total de $${totalPrest}`);
                 let aprobarPrestamo = confirm('Desea confirmar el prestamo?');
