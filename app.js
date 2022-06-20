@@ -1,6 +1,6 @@
 const consultar = () =>{
-  let opcion = prompt('Desea realizar otra acción? 1. Si o 2. No')
-  if(opcion == "1"){
+  let opcion = confirm('Desea realizar otra acción?');
+  if(opcion == true){
     cajeroAutomatico();
   }else{
     alert('Gracias por usar nuestros servicios.')
@@ -8,9 +8,12 @@ const consultar = () =>{
 }
 
 const intereses = (prestamo, cuotas) => {
-  for (let i = 1; i < cuotas; i++) {
-    
-    return calculo = prestamo * 0.02 * cuotas;
+  for (let i = 1; i <= cuotas; i++) {
+    let tasa = 0.02;
+    calculo = prestamo * tasa * cuotas;
+    totalPrest = calculo * cuotas;
+    alert(`El valor de la cuota numero ${i} es: $${calculo}`);
+    //return calculo = prestamo * 0.02 * cuotas;
     }
 }
 
@@ -49,7 +52,14 @@ const cajeroAutomatico = () => {
                 let prestamo = parseInt(prompt('Ingrese el monto a solicitar'));
                 let cuotas = parseInt(prompt('Ingrese el numero de cuotas'));
                 intereses(prestamo, cuotas);
-                alert(`Lo que debera pagar es: ${cuotas} cuotas del $${calculo}`);
+                alert(`Lo que debera pagar es: ${cuotas} cuotas de $${calculo} con un total de $${totalPrest}`);
+                let aprobarPrestamo = confirm('Desea confirmar el prestamo?');
+                if (aprobarPrestamo == true) {
+                    saldo = saldo + prestamo;
+                    alert('Su saldo actual es: $' + saldo);
+                } else {
+                    alert('El prestamo ha sido cancelado');
+                }
                 consultar();
                 break;
             case '5':
